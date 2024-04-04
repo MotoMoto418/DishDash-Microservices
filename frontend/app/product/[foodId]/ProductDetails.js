@@ -101,7 +101,7 @@ export default function ProductDetails({ product }) {
     console.log("cartProducts", cartProducts);
 
     if (cartProducts) {
-      console.log("YESSSSSS");
+      // console.log("YESSSSSS");
       const existingIndex = cartProducts.findIndex(
         (item) => item.id === product.food_id
       );

@@ -7,9 +7,11 @@ import Button from "../components/Button";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isVendor, setIsVendor] = useState(false);
   const {
     register,
     handleSubmit,
@@ -21,6 +23,9 @@ export default function RegisterForm() {
       ph_no: "",
       user_id: "",
       password: "",
+      cafe_name: "",
+      location: "",
+      cafe_image: "",
     },
   });
 
@@ -99,10 +104,44 @@ export default function RegisterForm() {
         required
         type="password"
       />
-      <select {...register("category", { required: true })} id="type">
+      <select
+        {...register("category", { required: true })}
+        id="type"
+        onChange={(e) => setIsVendor(e.target.value === "vendor")}
+      >
         <option value="customer">Customer</option>
         <option value="vendor">Vendor</option>
       </select>
+
+      {isVendor && (
+        <>
+          <Input
+            id="cafe_name"
+            label="Cafe Name"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+          />
+          <Input
+            id="location"
+            label="Location"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+          />
+          <Input
+            id="cafe_image"
+            label="Cafe Image Link"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+          />
+        </>
+      )}
+
       <Button
         label={isLoading ? "Loading" : "Register"}
         onClick={handleSubmit(onSubmit)}

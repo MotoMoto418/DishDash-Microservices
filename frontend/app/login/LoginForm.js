@@ -40,11 +40,15 @@ export default function LoginForm() {
         toast.success("Signed in successfully!");
 
         const responseData = await response.json();
-        console.log(responseData);
+        console.log("responseData", responseData);
 
         Cookies.set("user_id", responseData.user_id);
 
-        router.push("/");
+        if (responseData.category === "customer") {
+          router.push("/");
+        } else {
+          router.push("/vendor");
+        }
       } else {
         console.error("Registration failed");
         // You can handle the failed registration response here

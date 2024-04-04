@@ -9,14 +9,11 @@ import ProductCard from "@/app/components/products/ProductCard";
 export default function Cafe({ params }) {
   const [data, setData] = useState([]);
 
-  //   console.log(data1)
-//   console.log(params.cafeId);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/cafe/${params.cafeId}`
+          `http://localhost:5000/cafe/user/${params.cafeId}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
