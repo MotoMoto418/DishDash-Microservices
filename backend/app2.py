@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 import db
-import requests
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -114,10 +113,10 @@ def get_active_orders(owner_id):
 def get_food(owner_id):
     return jsonify(db.get_food(owner_id)), 200
 
-# @app.get('/food/<int:food_id>')
-# def food_info(food_id):
-#     res = db.food_info(food_id)
-#     return res, 200
+@app.get('/food/<int:food_id>')
+def food_info(food_id):
+    res = db.food_info(food_id)
+    return res, 200
 
 @app.get('/food/delete/<int:food_id>')
 def delete_food(food_id):
