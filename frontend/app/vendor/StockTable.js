@@ -25,7 +25,7 @@ export default function StockTable(props) {
         throw new Error("Network response for active orders was not ok");
       }
 
-      router.push('/vendor')
+      router.push("/vendor");
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -44,15 +44,15 @@ export default function StockTable(props) {
         throw new Error("Network response for active orders was not ok");
       }
 
-      router.push('/vendor')
+      location.reload();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
   const handleNewItem = () => {
-    router.push('/vendor/newitem')
-  }
+    router.push("/vendor/newitem");
+  };
 
   return (
     <div className="col-span-1 border-[1.2px] border-slate-200 bg-slate-50 rounded-sm p-2 text-center text-sm">
@@ -71,8 +71,8 @@ export default function StockTable(props) {
             </TableHead>
             <TableBody>
               {props.stockData.map((row, index) => {
-                console.log("row", typeof row)
-                
+                console.log("row", typeof row);
+
                 return (
                   <TableRow key={index}>
                     <TableCell>{row.name}</TableCell>
