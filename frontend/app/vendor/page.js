@@ -75,7 +75,7 @@ export default function Vendor() {
           throw new Error("Network response for stock data was not ok");
         }
         const stockData = await stockResponse.json();
-        console.log("stockData", stockData.foods)
+        console.log("stockData", stockData.foods);
         setStockData(stockData.foods);
       } catch (error) {
         console.error("Error fetching data:", error);
