@@ -15,8 +15,14 @@ def add_food(req):
     cursor.execute(
         "SELECT `cafe_id` FROM `owner` WHERE `owner_id` = %s", (req['user_id'],))
     cafe_id = cursor.fetchone()['cafe_id']
-    cursor.execute(f"SELECT MAX(`food_id`) AS id FROM `food`")
-    food_id = cursor.fetchall()[0]['id'] + 1
+
+    try:
+        cursor.execute(f"SELECT MAX(`food_id`) AS id FROM `food`")
+        food_id = cursor.fetchall()[0]['id'] + 1
+
+    except:
+         food_id = 0
+
     cursor.execute(
         f"INSERT INTO food VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
         (food_id, req['name'], req['descr'], cafe_id, req['price'],
@@ -237,6 +243,7 @@ def register(req):
 
 
 def delete_food(food_id):
+    print(food_id)
     cursor.execute(f"DELETE FROM `food` WHERE `food_id`=%s", (food_id,))
     mydb.commit()
 
