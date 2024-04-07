@@ -13,5 +13,5 @@ export default function Avatar({ src }) {
     />;
   }
 
-  return <FaUserCircle size={24}/>;
+  return <FaUserCircle size={24} />;
 }

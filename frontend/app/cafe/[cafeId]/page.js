@@ -13,14 +13,13 @@ export default function Cafe({ params }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/cafe/user/${params.cafeId}`
+          `http://localhost:5002/cafe/user/${params.cafeId}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
 
         const jsonData = await response.json();
-        // console.log(jsonData);
         setData(jsonData.foods);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -30,7 +29,6 @@ export default function Cafe({ params }) {
     fetchData();
   }, []);
 
-//   console.log(data.foods)
   return (
     <div className="p-8">
       <Container>

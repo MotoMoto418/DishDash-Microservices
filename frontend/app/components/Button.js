@@ -32,8 +32,8 @@ export default function Button({
     ${custom ? custom : ""}
     `}
 
-    // disabled:opacity-70
-    // disabled: cursor-not-allowed
+      // disabled:opacity-70
+      // disabled: cursor-not-allowed
     >
       {icon && <Icon size={24} />}
       {label}

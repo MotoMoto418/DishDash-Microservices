@@ -27,7 +27,7 @@ export default function LoginForm() {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch("http://localhost:5001/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,11 +51,9 @@ export default function LoginForm() {
         }
       } else {
         console.error("Registration failed");
-        // You can handle the failed registration response here
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      // Handle any other errors that may occur during registration
     } finally {
       setIsLoading(false);
     }

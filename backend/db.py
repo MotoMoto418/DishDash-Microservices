@@ -21,7 +21,7 @@ def add_food(req):
         food_id = cursor.fetchall()[0]['id'] + 1
 
     except:
-         food_id = 0
+        food_id = 0
 
     cursor.execute(
         f"INSERT INTO food VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
@@ -220,7 +220,7 @@ def register(req):
         try:
             cursor.execute(f"SELECT MAX(`cafe_id`) AS id FROM `cafe`")
             cafe_id = cursor.fetchall()[0]['id'] + 1
-        
+
         except:
             print("except")
             cafe_id = 0
@@ -249,22 +249,24 @@ def delete_food(food_id):
 
 
 def admin():
-	# cursor.execute(f"show tables")
-	# l = [x['Tables_in_dishdash'] for x in cursor.fetchall()]
-	l = ['user', 'owner', 'cafe']
-	res = {}
-	for i in l:
-		cursor.execute(f"SELECT * FROM `{i}`")
-		res[i] = cursor.fetchall()
-	# print(i)
+    # cursor.execute(f"show tables")
+    # l = [x['Tables_in_dishdash'] for x in cursor.fetchall()]
+    l = ['user', 'owner', 'cafe']
+    res = {}
+    for i in l:
+        cursor.execute(f"SELECT * FROM `{i}`")
+        res[i] = cursor.fetchall()
+    # print(i)
 
-	return res
+    return res
+
 
 def update(req):
-	for i in req['data'].keys():  
-		if req['data'][i] != '':
-			print(i)
-			cursor.execute(f"UPDATE `{req['table']}` SET `{i}` = '{req['data'][i]}' WHERE (`{req['table']+'_id'}` = {req['id']})")
-			mydb.commit()
+    for i in req['data'].keys():
+        if req['data'][i] != '':
+            print(i)
+            cursor.execute(
+                f"UPDATE `{req['table']}` SET `{i}` = '{req['data'][i]}' WHERE (`{req['table']+'_id'}` = {req['id']})")
+            mydb.commit()
 
-	return {'success': 'update successful'}
+    return {'success': 'update successful'}

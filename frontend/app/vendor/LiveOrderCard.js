@@ -19,12 +19,10 @@ export default function LiveOrderCard(props) {
   const router = useRouter();
   const [isComplete, setIsComplete] = useState(0);
 
-  // console.log(data.items);
-
   const onOrderComplete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/order/${props.order_id}`
+        `http://localhost:5006/order/${props.order_id}`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");

@@ -19,7 +19,7 @@ export default function StockTable(props) {
     console.log("instock");
     try {
       const orderResponse = await fetch(
-        `http://localhost:5000/food/${food_id}`
+        `http://localhost:5006/food/${food_id}`
       );
       if (!orderResponse.ok) {
         throw new Error("Network response for active orders was not ok");
@@ -38,7 +38,7 @@ export default function StockTable(props) {
   const handleDelete = async (food_id) => {
     try {
       const orderResponse = await fetch(
-        `http://localhost:5000/food/delete/${food_id}`
+        `http://localhost:5006/food/delete/${food_id}`
       );
       if (!orderResponse.ok) {
         throw new Error("Network response for active orders was not ok");

@@ -12,54 +12,12 @@ export default function Vendor() {
   const [stockData, setStockData] = useState([]);
   const ownerId = Cookies.get("user_id");
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:5000/orders/active/${ownerId}`
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-
-  //       const responseData = await response.json();
-  //       // console.log(responseData);
-  //       setOrderData(responseData);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [ownerId]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:5000/cafe/${ownerId}`
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-
-  //       const responseData = await response.json();
-  //       // console.log(responseData);
-  //       setStockData(responseData);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [ownerId]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch active orders
         const orderResponse = await fetch(
-          `http://localhost:5000/orders/active/${ownerId}`
+          `http://localhost:5006/orders/active/${ownerId}`
         );
         if (!orderResponse.ok) {
           throw new Error("Network response for active orders was not ok");
@@ -69,7 +27,7 @@ export default function Vendor() {
 
         // Fetch stock data
         const stockResponse = await fetch(
-          `http://localhost:5000/cafe/${ownerId}`
+          `http://localhost:5006/cafe/${ownerId}`
         );
         if (!stockResponse.ok) {
           throw new Error("Network response for stock data was not ok");

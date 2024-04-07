@@ -16,7 +16,7 @@ export default function orderDisplay() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/orders", {
+        const response = await fetch("http://localhost:5004/orders", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -60,89 +60,3 @@ export default function orderDisplay() {
     </Container>
   );
 }
-
-// OrderDisplay.js
-// import Cookies from "js-cookie";
-// import React, { useEffect, useState } from "react";
-// import Container from "../components/Container";
-
-// export default function OrderDisplay() {
-//   const [orderData, setOrderData] = useState({});
-
-//   useEffect(() => {
-//     const user_id = Cookies.get("user_id");
-//     const reqObj = {
-//       user_id: user_id,
-//     };
-
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch("http://localhost:5000/orders", {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify(reqObj),
-//         });
-
-//         if (response.ok) {
-//           const responseData = await response.json();
-//           setOrderData(responseData);
-//         } else {
-//           console.error("Fetching orders failed");
-//         }
-//       } catch (error) {
-//         console.error("Error during order fetching:", error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-
-//   console.log("orderData", Object.keys(orderData));
-
-//   return (
-//     <Container>
-//       <div>
-//         {Object.keys(orderData).map((orderNumber) => {
-//           const order = orderData[orderNumber];
-
-//           console.log("order", order);
-
-//           return (
-//             <div key={orderNumber} className="order-tile">
-//               <h3>{`Order #${orderNumber} - ${order.items[0].cafe_name}`}</h3>
-//               <table>
-//                 <thead>
-//                   <tr>
-//                     <th>Food Name</th>
-//                     <th>Quantity</th>
-//                     <th>Subtotal</th>
-//                   </tr>
-//                 </thead>
-//                 <tbody>
-//                   {order.items.map((item, index) => (
-//                     <tr key={index}>
-//                       <td>{item.food_name}</td>
-//                       <td>{item.qty}</td>
-//                       <td>{item.qty * item.price}</td>
-//                     </tr>
-//                   ))}
-//                   <tr>
-//                     <td colSpan="2">Total</td>
-//                     <td>
-//                       {order.items.reduce(
-//                         (total, item) => total + item.qty * item.price,
-//                         0
-//                       )}
-//                     </td>
-//                   </tr>
-//                 </tbody>
-//               </table>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </Container>
-//   );
-// }

@@ -36,10 +36,10 @@ export default function UpdateForm(props) {
       table: "food",
       id: props.food_id,
       data: data,
-    }
+    };
 
     try {
-      const response = await fetch("http://localhost:5000/update", {
+      const response = await fetch("http://localhost:5006/update", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

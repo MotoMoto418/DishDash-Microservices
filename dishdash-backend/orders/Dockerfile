@@ -3,5 +3,5 @@ WORKDIR /dishdash
 COPY ./requirements.txt /dishdash
 RUN pip install -r requirements.txt
 COPY . .
-EXPOSE 5005
+EXPOSE 5004
 CMD ["python", "app.py"]
