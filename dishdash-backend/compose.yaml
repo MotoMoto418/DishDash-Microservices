@@ -1,0 +1,40 @@
+services:
+  cafe:
+    build: cafe/
+
+    network_mode: "host"
+
+  cart:
+    build: cart/
+
+    network_mode: "host"
+
+  landing:
+    build: landing/
+
+    network_mode: "host"
+
+  login:
+    build: login/
+
+    network_mode: "host"
+
+  orders:
+    build: orders/
+
+    network_mode: "host"
+
+  product:
+    build: product/
+
+    network_mode: "host"
+
+  register:
+    build: register/
+
+    network_mode: "host"
+
+  vendor:
+    build: vendor/
+
+    network_mode: "host"
