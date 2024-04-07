@@ -17,6 +17,7 @@ cursor = mydb.cursor(dictionary=True)
 app = Flask(__name__)
 CORS(app)
 
+
 def post_order(req):
     cursor.execute(f"SELECT MAX(`order_id`) AS id FROM `order`")
     order_id = cursor.fetchall()[0]['id'] + 1
@@ -32,6 +33,7 @@ def post_order(req):
 
     return order_id
 
+
 @app.post('/order')
 def _post_order():
     if request.is_json:
@@ -41,6 +43,7 @@ def _post_order():
 
         return {'success': res}, 200
     return {"error": "Request must be JSON"}, 415
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5002, debug=True)

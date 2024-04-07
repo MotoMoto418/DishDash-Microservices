@@ -157,6 +157,7 @@ def admin():
     res = db.admin()
     return res, 200
 
+
 @app.post('/update')
 def update():
     if request.is_json:

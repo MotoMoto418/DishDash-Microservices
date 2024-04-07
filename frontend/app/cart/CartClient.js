@@ -48,13 +48,11 @@ export default function CartClient() {
     const packet = prepareOrderData(cartProducts, user_id, cartTotalAmount);
 
     try {
-      const response = await fetch("http://localhost:5000/order", {
+      const response = await fetch("http://localhost:5003/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // Add any other headers you may need
         },
-        // You can pass data in the body if needed
         body: JSON.stringify(packet),
       });
 
@@ -62,11 +60,9 @@ export default function CartClient() {
         throw new Error("Network response was not ok");
       }
 
-      // Handle successful response here
       console.log("Order placed successfully!");
       toast.success("Order placed!");
     } catch (error) {
-      // Handle errors here
       console.error("Error placing order:", error);
     }
 

@@ -15,40 +15,21 @@ const Horizontal = () => {
 };
 
 export default function ProductDetails({ product }) {
-  // console.log("product", product);
-  // console.log(product.food_id, product.cafe_id);
-  //
-  // console.log("product.food_id:", product.food_id);
-  // console.log("product.cafe_id:", product.cafe_id);
-
-  // const item = products.find(
-  //   (i) => i.food_id === product.food_id && i.cafe_id === product.cafe_id
-  // );
-
-  // console.log("item", item);
-
   const { handleAddProduct, cartProducts } = useCart();
-
-  // console.log(cartProducts);
-
   const [location, setLocation] = useState([]);
-
-  //   console.log(data1)
-  //   console.log(params.cafeId);
 
   useEffect(() => {
     if (product.cafe_id !== undefined) {
       const fetchData = async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/cafename/${product.cafe_id}`
+            `http://localhost:5005/cafename/${product.cafe_id}`
           );
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
 
           const jsonData = await response.json();
-          // console.log(jsonData);
           setLocation(jsonData.name);
         } catch (error) {
           console.error("Error fetching data:", error);
@@ -74,9 +55,6 @@ export default function ProductDetails({ product }) {
     price: 0,
   });
 
-  // console.log("cartProduct", cartProduct.quantity);
-  // console.log("product details", product.food_id);
-
   const router = useRouter();
 
   useEffect(() => {
@@ -101,7 +79,6 @@ export default function ProductDetails({ product }) {
     console.log("cartProducts", cartProducts);
 
     if (cartProducts) {
-      // console.log("YESSSSSS");
       const existingIndex = cartProducts.findIndex(
         (item) => item.id === product.food_id
       );
@@ -126,7 +103,6 @@ export default function ProductDetails({ product }) {
 
   const handleIncrease = useCallback(() => {
     if (cartProduct.quantity === 10) {
-      //Change to be dynamic
       return;
     }
 
@@ -192,17 +168,6 @@ export default function ProductDetails({ product }) {
               <Button
                 label="Add to cart"
                 onClick={() => {
-                  // setCartProduct((prev) => ({
-                  //   ...prev,
-                  //   id: food_id,
-                  //   name: name,
-                  //   description: descr,
-                  //   category: category,
-                  //   location: location,
-                  //   img: image,
-                  //   price: price,
-                  // }));
-
                   handleAddProduct(cartProduct);
                 }}
               />

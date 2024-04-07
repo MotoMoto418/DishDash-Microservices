@@ -17,6 +17,7 @@ cursor = mydb.cursor(dictionary=True)
 app = Flask(__name__)
 CORS(app)
 
+
 def get_orders(req):
     res = {}
     cursor.execute(f"SELECT * FROM `user` WHERE `user_id`=%s",
@@ -62,6 +63,7 @@ def get_orders(req):
 
     return res
 
+
 @app.post('/orders')
 def _get_orders():
     if request.is_json:
@@ -70,6 +72,7 @@ def _get_orders():
 
         return res, 200
     return {"error": "Request must be JSON"}, 415
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5005, debug=True)

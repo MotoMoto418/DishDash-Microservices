@@ -35,7 +35,7 @@ export default function RegisterForm() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch("http://localhost:5001/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,11 +49,9 @@ export default function RegisterForm() {
         router.push("/login");
       } else {
         console.error("Registration failed");
-        // You can handle the failed registration response here
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      // Handle any other errors that may occur during registration
     } finally {
       setIsLoading(false);
     }

@@ -6,18 +6,13 @@ import ProductDetails from "./ProductDetails";
 import { products } from "@/utils/Products";
 
 export default function Product({ params }) {
-  // const product = products.find((item) => item.id === params.productId);
-
   const [data, setData] = useState({});
-
-  //   console.log(data1)
-  //   console.log(params.cafeId);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/food/${params.foodId}`
+          `http://localhost:5005/food/${params.foodId}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

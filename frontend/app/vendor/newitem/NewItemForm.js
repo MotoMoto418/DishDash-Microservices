@@ -36,7 +36,7 @@ export default function NewItemForm() {
     console.log("data", JSON.stringify(data));
 
     try {
-      const response = await fetch("http://localhost:5000/food/add", {
+      const response = await fetch("http://localhost:5006/food/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,11 +54,9 @@ export default function NewItemForm() {
         router.push("/vendor");
       } else {
         console.error("Registration failed");
-        // You can handle the failed registration response here
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      // Handle any other errors that may occur during registration
     } finally {
       setIsLoading(false);
     }

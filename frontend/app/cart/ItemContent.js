@@ -7,7 +7,8 @@ import SetQuantity from "../components/products/SetQuantity";
 import { useCart } from "@/hooks/useCart";
 
 export default function ItemContent({ item }) {
-  const { handleRemoveProduct, handleQtyIncrease, handleQtyDecrease } = useCart();
+  const { handleRemoveProduct, handleQtyIncrease, handleQtyDecrease } =
+    useCart();
 
   return (
     <div className="grid grid-cols-5 text-xs md:text-sm gap-4 border-[1.5px] py-4 items-center">
