@@ -7,7 +7,7 @@ import json
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Root@123",
+    password="changeme",
     database="dishdash"
 )
 
@@ -94,4 +94,5 @@ def _login():
     return {"error": "Request must be JSON"}, 415
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5001
+    , debug=True)
