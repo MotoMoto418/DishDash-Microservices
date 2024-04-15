@@ -15,7 +15,7 @@ export default function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:5000/cafe');
+          const response = await fetch('http://localhost:5002/cafe');
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
