@@ -10,7 +10,8 @@ import Cookies from "js-cookie";
 export default function Vendor() {
   const [orderData, setOrderData] = useState({});
   const [stockData, setStockData] = useState([]);
-  const ownerId = Cookies.get("user_id");
+  // const ownerId = Cookies.get("user_id");
+  const ownerId = localStorage.getItem("user_id");
 
   useEffect(() => {
     const fetchData = async () => {

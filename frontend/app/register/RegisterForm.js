@@ -7,7 +7,6 @@ import Button from "../components/Button";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);

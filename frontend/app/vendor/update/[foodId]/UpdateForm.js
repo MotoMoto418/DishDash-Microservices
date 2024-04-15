@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
 

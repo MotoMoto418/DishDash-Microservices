@@ -12,7 +12,8 @@ export default function NewItemForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [stockStatus, setStockStatus] = useState(1);
 
-  const user_id = Cookies.get("user_id");
+  // const user_id = Cookies.get("user_id");
+  const user_id = localStorage.getItem("user_id");
 
   const {
     register,
