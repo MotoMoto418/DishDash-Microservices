@@ -70,7 +70,8 @@ export default function CartClient() {
     router.push("/");
   };
 
-  const user_id = Cookies.get("user_id");
+  // const user_id = Cookies.get("user_id");
+  const user_id = localStorage.getItem("user_id");
   console.log("user_id", user_id);
   console.log("cartProducts", cartProducts);
 

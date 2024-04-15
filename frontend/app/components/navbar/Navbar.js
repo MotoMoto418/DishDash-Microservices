@@ -8,7 +8,8 @@ import UserMenu from "./UserMenu";
 import Cookies from "js-cookie";
 
 export default function Navbar() {
-  console.log(Cookies.get('f_name'))
+  // console.log(Cookies.get('f_name'))
+  console.log(localStorage.getItem("f_name"));
 
   // console.log(f_name)
 

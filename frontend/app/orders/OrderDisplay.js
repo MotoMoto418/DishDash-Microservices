@@ -9,7 +9,8 @@ export default function orderDisplay() {
   const [orderData, setOrderData] = useState({});
 
   useEffect(() => {
-    const user_id = Cookies.get("user_id");
+    // const user_id = Cookies.get("user_id");
+    localStorage.getItem("user_id");
     const reqObj = {
       user_id: user_id,
     };

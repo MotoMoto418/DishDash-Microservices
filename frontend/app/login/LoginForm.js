@@ -42,7 +42,8 @@ export default function LoginForm() {
         const responseData = await response.json();
         console.log("responseData", responseData);
 
-        Cookies.set("user_id", responseData.user_id);
+        // Cookies.set("user_id", responseData.user_id);
+        localStorage.setItem("user_id", responseData.user_id)
 
         if (responseData.category === "customer") {
           router.push("/");

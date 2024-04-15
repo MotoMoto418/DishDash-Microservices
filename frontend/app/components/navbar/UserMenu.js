@@ -16,7 +16,8 @@ export default function UserMenu() {
     setIsOpen((prev) => !prev);
   }, []);
 
-  const currentUser = Cookies.get("user_id");
+  // const currentUser = Cookies.get("user_id");
+  const currentUser = localStorage.getItem("user_id");
 
   return (
     <>
@@ -46,7 +47,8 @@ export default function UserMenu() {
                   <MenuItem
                     onClick={() => {
                       toggleOpen();
-                      Cookies.remove("user_id");
+                      // Cookies.remove("user_id");
+                      localStorage.removeItem("user_id");
                       toast.success("Logged out successfully.")
                     }}
                   >
